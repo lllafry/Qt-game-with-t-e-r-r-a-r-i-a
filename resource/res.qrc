@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>furnace_0.png</file>
+        <file>furnace_1.png</file>
+        <file>furnace_2.png</file>
+        <file>furnace_3.png</file>
+        <file>furnace_4.png</file>
+        <file>furnace_5.png</file>
+        <file>lift_clk.png</file>
+        <file>lift_off.png</file>
+        <file>lift_on.png</file>
+        <file>npc_0.png</file>
+        <file>npc_1.png</file>
+        <file>npc_2.png</file>
+        <file>npc_3.png</file>
+        <file>npc_4.png</file>
+        <file>npc_5.png</file>
+        <file>npc_6.png</file>
+        <file>npc_7.png</file>
+        <file>npc_w.png</file>
+        <file>res.qrc</file>
+        <file>scene.png</file>
+        <file>smoke_0.png</file>
+        <file>smoke_1.png</file>
+        <file>smoke_2.png</file>
+        <file>smoke_3.png</file>
+        <file>smoke_4.png</file>
+        <file>smoke_5.png</file>
+        <file>torch_0.png</file>
+        <file>torch_1.png</file>
+        <file>torch_2.png</file>
+        <file>torch_3.png</file>
+        <file>torch_4.png</file>
+    </qresource>
+</RCC>
