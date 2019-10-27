@@ -1,7 +1,8 @@
 #include "worker.h"
+#include "loader.h"
 
-worker::worker(loader &data, int x_, int y_):
-    NPC(data, -1, x_, y_)
+worker::worker(int x_, int y_):
+    NPC(-1, x_, y_)
 {
     set_max_speed(5);
     target_x = home.x;

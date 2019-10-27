@@ -67,10 +67,10 @@ class NPC : public QObject, public QGraphicsItem
     } move;
 
 public:
-    NPC(loader data, int type, int x_, int y_, bool is_set_home = true);
-    virtual ~NPC() {}
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-               QWidget *widget);
+    NPC(int type, int x_, int y_, bool is_set_home = true);
+    virtual ~NPC() =default;
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
+               QWidget *widget) override;
     QRectF boundingRect() const
     {
         return QRectF (cur.x, cur.y, lenx, leny);
@@ -85,7 +85,7 @@ public slots:
 
 protected:
     virtual void update_target()=0;
-    bool is_resting()
+    bool is_resting() const
     {
         return move.state == 0;
     }

@@ -19,32 +19,32 @@ town::town() : QGraphicsView()
 
     // sprites
     // .house 0
-    sprites.append(new sprite(data["smoke"], 144, 544, 4));
-    sprites.append(new sprite(data["furnace"], 144, 688, 7));
+    sprites.append(new sprite("smoke", 144, 544, 4));
+    sprites.append(new sprite("furnace", 144, 688, 7));
 
     // .house 1
     for (int i= 0; i < 5; i++)
     {
-        sprites.append(new sprite(data["torch_m"], 464, 336 + i * 80, 7));
-        sprites.append(new sprite(data["torch"], 704, 336 + i * 80, 7));
+        sprites.append(new sprite("torch_m", 464, 336 + i * 80, 7));
+        sprites.append(new sprite("torch", 704, 336 + i * 80, 7));
     }
     // .house 2
     for (int i= 0; i < 6; i++)
     {
-        sprites.append(new sprite(data["torch_m"], 1072, 256 + i * 80, 7));
-        sprites.append(new sprite(data["torch"], 1392, 256 + i * 80, 7));
+        sprites.append(new sprite("torch_m", 1072, 256 + i * 80, 7));
+        sprites.append(new sprite("torch", 1392, 256 + i * 80, 7));
     }
     for (sprite *psprite : sprites)
         scene.addItem(psprite);
     // elevators
-    elevators.append(new lift(data, 560, 640));
-    elevators.append(new lift(data, 1328, 640));
+    elevators.append(new lift(560, 640));
+    elevators.append(new lift(1328, 640));
     QObject::connect(&tm_tick, SIGNAL(timeout()), elevators.at(0), SLOT(move()));
     QObject::connect(&tm_tick, SIGNAL(timeout()), elevators.at(1), SLOT(move()));
     for (lift *pelevator : elevators)
         scene.addItem(pelevator);
     // workers
-    workers.append(new worker(data, 96, 672));
+    workers.append(new worker(96, 672));
     for (lift *pelevator : elevators)
     {
         QObject::connect(&tm_tick, SIGNAL(timeout()), workers.at(0), SLOT(next_tick()));
@@ -101,7 +101,7 @@ void town::update_settings(int num_citizen,
     if (!citizens.length())
     {
         for (int i = 0; i < num_citizen; ++i)
-            citizens.append(new citizen(data, qrand() % 8, qrand() % 21));
+            citizens.append(new citizen(qrand() % 8, qrand() % 21));
         for (citizen *pcitizen : citizens)
         {
             QObject::connect(&tm_tick, SIGNAL(timeout()), pcitizen, SLOT(next_tick()));

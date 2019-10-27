@@ -1,4 +1,5 @@
 #include "citizen.h"
+#include "npc.h"
 
 const std::array<int, citizen::num_places * 2> citizen::places_xy = {
     -80,  672, //  1 слева за границей
@@ -23,8 +24,8 @@ const std::array<int, citizen::num_places * 2> citizen::places_xy = {
     1104, 272, // 20 этаж 5
     1200, 272};// 21 этаж 5
 
-citizen::citizen(loader &data_, int type, int place_):
-    NPC(data_, abs(type), 0, 0, false)
+citizen::citizen(int type, int place_):
+    NPC(abs(type), 0, 0, false)
 {
     set_max_speed(2000);
     target_x = cur.x = places_xy[2 * (place_ % num_places)];

@@ -26,11 +26,10 @@ public:
     enum { height = 912, width = 1672 };
 
 private:
-    void keyPressEvent(QKeyEvent* event);
+    virtual void keyPressEvent(QKeyEvent* event);
 
     QGraphicsScene scene;
     QTimer tm_tick, tm_update;
-    loader data;
     settings_form settings;
     QVector<sprite*> sprites;
     QVector<lift*> elevators;

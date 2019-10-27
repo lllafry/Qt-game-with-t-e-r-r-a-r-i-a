@@ -1,6 +1,6 @@
 #include "lift.h"
 
-lift::lift(loader &data_, int x_, int y_):
+lift::lift(int x_, int y_):
     x(x_), y(y_), home_y(y_)
 {
 
@@ -15,9 +15,9 @@ lift::lift(loader &data_, int x_, int y_):
 
     crash_rate = crash_rank + 1 + qrand() % 20; // == 0 - error
 
-    lift_on = data_["lift_on"].at(0);
-    lift_off = data_["lift_off"].at(0);
-    lift_clk = data_["lift_clk"].at(0);
+    lift_on = loader::getData()["lift_on"].at(0);
+    lift_off = loader::getData()["lift_off"].at(0);
+    lift_clk = loader::getData()["lift_clk"].at(0);
     lenx = lift_on.width();
     leny = lift_on.height();
 

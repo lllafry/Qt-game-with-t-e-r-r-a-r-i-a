@@ -3,8 +3,11 @@
 
 #include <QTimer>
 #include <array>
+
 #include "npc.h"
 #include "loader.h"
+
+
 
 class citizen : public NPC
 {
@@ -20,7 +23,7 @@ class citizen : public NPC
     };
 
 public:
-    citizen(loader &data_, int type, int place_);
+    citizen(int type, int place_);
     virtual ~citizen() {}
 
 public slots:

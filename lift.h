@@ -5,7 +5,6 @@
 #include <QPainter>
 #include <QDebug>
 #include <QTimer>
-#include <algorithm>
 
 #include <loader.h>
 
@@ -29,7 +28,7 @@ class lift: public QObject, public QGraphicsItem
             path = path_;
             ID.append(ID_);
         }
-        bool operator ==(CALLS const &other)
+        bool operator ==(CALLS const &other) const
         {
             return this->level == other.level && this->path == other.path;
         }
@@ -41,12 +40,12 @@ class lift: public QObject, public QGraphicsItem
     };
 
 public:
-    lift(loader &data_, int x_, int y_);
-    ~lift() {}
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-               QWidget *widget);
+    lift(int x_, int y_);
+    virtual ~lift() =default;
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
+               QWidget *widget) override;
 
-    QRectF boundingRect() const
+    virtual QRectF boundingRect() const override
     {
         return QRectF (x, y, lenx, leny);
     }

@@ -1,5 +1,13 @@
 #include "loader.h"
 
+const QMap<QString, QVector<QPixmap> > & loader::getData()
+{
+    static loader instanse_loader;
+    return instanse_loader.data;
+}
+
+
+
 loader::loader()
 {
     int i, j;

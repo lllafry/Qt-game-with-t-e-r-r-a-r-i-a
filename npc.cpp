@@ -1,14 +1,14 @@
 #include "npc.h"
 
-NPC::NPC(loader data, int type, int x_, int y_, bool is_set_home):
+NPC::NPC(int type, int x_, int y_, bool is_set_home):
     cur(x_, y_)
 {
     QString cur_npc = "npc_" +
             (type >= 0 ? QString::number(type % loader::anmt_citizen) : "w");
-    data_l = data[cur_npc];
-    data_r = data[cur_npc + "_m"];
-    lenx = data_l.length() ? data_l.at(0).width() : 0;
-    leny = data_l.length() ? data_l.at(0).height() : 0;
+    data_l = loader::getData()[cur_npc];
+    data_r = loader::getData()[cur_npc + "_m"];
+    lenx = loader::getData()[cur_npc].length() ? data_l.at(0).width() : 0;
+    leny = loader::getData()[cur_npc].length() ? data_l.at(0).height() : 0;
     if (is_set_home)
         home = cur;
 }

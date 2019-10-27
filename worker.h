@@ -2,17 +2,16 @@
 #define WORKER_H
 
 #include "npc.h"
-#include "loader.h"
 
 class worker : public NPC
 {
     Q_OBJECT
 public:
-    worker(loader &data, int x_, int y_);
-    virtual ~worker() {}
+    worker(int x_, int y_);
+    virtual ~worker() =default;
 
 private:
-    void update_target();
+    virtual void update_target() override;
 
     QVector<int> tasks;
     QTimer tm_repair;
